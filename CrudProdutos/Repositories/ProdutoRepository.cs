@@ -74,18 +74,35 @@ namespace CrudProdutos.Repositories
             try
             {
 
-                var query = @"select * from produto order by nome";
+                var query = @"select id, nome, preco, quantidade from produto order by nome";
 
                 using (var connection = new SqlConnection(connectionString))
                 {
                     return connection.Query<Produto>(query).ToList();
                 }
-
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
+        }
+
+        public Produto? ObterPorId(Guid id)
+        {
+            try
+            {
+                var query = @"select id, nome, preco, quantidade from produto where id = @Id";
+
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    return connection.Query<Produto>(query, new { @Id = id }).FirstOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
         }
     }
 }
