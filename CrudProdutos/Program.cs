@@ -7,7 +7,7 @@ namespace CrudProdutos
         static void Main(string[] args)
         {
             var controller = new ProdutoController();
-            controller.Inserir();
+            controller.GerenciarProdutos();
         }
     }
 }

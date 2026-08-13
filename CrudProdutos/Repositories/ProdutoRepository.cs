@@ -74,7 +74,7 @@ namespace CrudProdutos.Repositories
             try
             {
 
-                var query = @"select id, nome, preco, quantidade from produto order by nome";
+                var query = @"select id, nome, preco, quantidade, datahoracadastro from produtos order by nome";
 
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -91,7 +91,7 @@ namespace CrudProdutos.Repositories
         {
             try
             {
-                var query = @"select id, nome, preco, quantidade from produto where id = @Id";
+                var query = @"select id, nome, preco, quantidade, datahoracadastro from produtos where id = @Id";
 
                 using (var connection = new SqlConnection(connectionString))
                 {
